@@ -14,7 +14,7 @@ public class UFOSpawn : MonoBehaviour
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
 
-        InvokeRepeating("SpawnUFO", 3.0f, 0.1f);
+        InvokeRepeating("SpawnUFO", 3.0f, 5.0f);
     }
 
     void SpawnUFO()
@@ -23,21 +23,9 @@ public class UFOSpawn : MonoBehaviour
         tmp.transform.position = SpawnRadius();
     }
 
-    //Vector3 GetRandomPoint()
-    //{
-    //    int xRandom = 0;
-    //    int zRandom = 0;
-
-
-    //    xRandom = (int)Random.Range(col.bounds.min.x, col.bounds.max.x);
-    //    zRandom = (int)Random.Range(col.bounds.min.z, col.bounds.max.z);
-
-    //    return new Vector3(xRandom, 0.0f, zRandom);
-    //}
-
     Vector3 SpawnRadius()
     {
-        //Vector3 offset = Random.OnUnitSphere * Random.Range(5, 10);
+        //Determine the spawn position (outside radius of player, but not too far)
         float minDistance = 10.0f;
         float maxDistance = 20.0f;
         float distance = Random.Range(minDistance, maxDistance);
