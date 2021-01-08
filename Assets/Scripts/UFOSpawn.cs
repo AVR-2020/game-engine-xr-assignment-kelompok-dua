@@ -8,6 +8,8 @@ public class UFOSpawn : MonoBehaviour
     public GameObject ufo;
     public GameObject player = null;
 
+    //public int speed = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,10 @@ public class UFOSpawn : MonoBehaviour
     {
         GameObject tmp = Instantiate(ufo);
         tmp.transform.position = SpawnRadius();
-        //tmp.addComponent(UFOSpawn);
+
+        //try to only enable scripts for clone
+        tmp.AddComponent<ShootableTarget>();
+        //tmp.gameObject.addComponent< ShootableTarget >(); 
     }
 
     Vector3 SpawnRadius()
@@ -35,7 +40,7 @@ public class UFOSpawn : MonoBehaviour
         Vector3 spawnPosition = player.transform.position;
         spawnPosition += new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * distance;
         spawnPosition.x = Mathf.Clamp(spawnPosition.x, -maxDistance, maxDistance);
-        spawnPosition.y = Random.Range(2.0f, 10.0f);
+        spawnPosition.y = Random.Range(2.0f, 7.0f);
         spawnPosition.z = Mathf.Clamp(spawnPosition.z, -maxDistance, maxDistance);
 
         return new Vector3(spawnPosition.x, spawnPosition.y, spawnPosition.z);
@@ -44,6 +49,8 @@ public class UFOSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //transform.LookAt(player.transform);
+
+        //transform.position += transform.forward * MoveSpeed * Time.deltaTime;
     }
 }
