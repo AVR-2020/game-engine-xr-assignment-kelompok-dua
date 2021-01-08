@@ -11,17 +11,17 @@ public class ShootableTarget : MonoBehaviour
     {
         typeUFO = Random.Range(1, 10);
         var matcolor = gameObject.GetComponent<Renderer>();
-        if (typeUFO >= 1 && typeUFO <= 6)
+        if (typeUFO >= 1 && typeUFO <= 6) // Normal UFO (60%)
         {
             currentHealth = 3;
             matcolor.material.color = Color.yellow;
         }
-        else if (typeUFO >= 7 && typeUFO <= 8)
+        else if (typeUFO >= 7 && typeUFO <= 8) // Tanky UFO (20%)
         {
             currentHealth = 5;
             matcolor.material.color = Color.blue;
         }
-        else if (typeUFO >= 9 && typeUFO <= 10)
+        else if (typeUFO >= 9 && typeUFO <= 10) // Speedy UFO (20%)
         {
             currentHealth = 1;
             matcolor.material.color = Color.red;
