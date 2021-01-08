@@ -31,14 +31,14 @@ public class UFOSpawn : MonoBehaviour
         tmp.AddComponent<ShootableTarget>();
         //tmp.gameObject.addComponent< ShootableTarget >(); 
 
-        if (spawnRate > 1.0f) spawnRate -= 0.1f;
+        if (spawnRate > 2.0f) spawnRate -= 0.1f;
     }
 
     Vector3 SpawnRadius()
     {
         //Determine the spawn position (outside radius of player, but not too far)
-        float minDistance = 10.0f;
-        float maxDistance = 20.0f;
+        float minDistance = 15.0f;
+        float maxDistance = 30.0f;
         float distance = Random.Range(minDistance, maxDistance);
         float angle = Random.Range(-Mathf.PI, Mathf.PI);
 
