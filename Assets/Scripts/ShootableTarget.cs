@@ -11,7 +11,7 @@ public class ShootableTarget : MonoBehaviour
         currentHealth -= damageAmount;
         if (currentHealth <= 0)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

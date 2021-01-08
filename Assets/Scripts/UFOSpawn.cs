@@ -21,6 +21,7 @@ public class UFOSpawn : MonoBehaviour
     {
         GameObject tmp = Instantiate(ufo);
         tmp.transform.position = SpawnRadius();
+        //tmp.addComponent(UFOSpawn);
     }
 
     Vector3 SpawnRadius()
