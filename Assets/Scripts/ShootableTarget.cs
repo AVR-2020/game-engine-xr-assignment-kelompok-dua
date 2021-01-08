@@ -11,6 +11,8 @@ public class ShootableTarget : MonoBehaviour
     public float MoveSpeed = 1.0f;
     public GameObject player = null;
 
+    private int rewardPoints;
+
     void Start()
     {
         if (player == null)
@@ -20,18 +22,21 @@ public class ShootableTarget : MonoBehaviour
         if (typeUFO >= 1 && typeUFO <= 6) // Normal UFO (60%)
         {
             currentHealth = 3;
+            rewardPoints = 1;
             MoveSpeed = 0.03f;
             matcolor.material.color = Color.yellow;
         }
         else if (typeUFO >= 7 && typeUFO <= 8) // Tanky UFO (20%)
         {
             currentHealth = 5;
+            rewardPoints = 3;
             MoveSpeed = 0.01f;
             matcolor.material.color = Color.blue;
         }
         else if (typeUFO >= 9 && typeUFO <= 10) // Speedy UFO (20%)
         {
             currentHealth = 1;
+            rewardPoints = 2;
             MoveSpeed = 0.05f;
             matcolor.material.color = Color.red;
         }
@@ -42,6 +47,8 @@ public class ShootableTarget : MonoBehaviour
         currentHealth -= damageAmount;
         if (currentHealth <= 0)
         {
+            GameObject scoreObj = GameObject.Find("Score");
+            scoreObj.GetComponent<Score>().AddScore(rewardPoints);
             Destroy(gameObject);
         }
     }
