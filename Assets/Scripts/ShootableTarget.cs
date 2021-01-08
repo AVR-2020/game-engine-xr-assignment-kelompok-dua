@@ -13,9 +13,15 @@ public class ShootableTarget : MonoBehaviour
         if (typeUFO >= 1 && typeUFO <= 6)
             currentHealth = 3;
         else if (typeUFO >= 7 && typeUFO <= 8)
+        {
             currentHealth = 5;
+            gameObject.GetComponent<Renderer>().material.color = Color.blue;
+        }
         else if (typeUFO >= 9 && typeUFO <= 10)
+        {
             currentHealth = 1;
+            gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
     }
 
     public void Damage(int damageAmount)
