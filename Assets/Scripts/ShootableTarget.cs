@@ -54,4 +54,11 @@ public class ShootableTarget : MonoBehaviour
         transform.position = Vector3.MoveTowards(currentPosition, targetPosition, MoveSpeed);
         //transform.position += transform.forward * MoveSpeed * Time.deltaTime;
     }
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        if (other.CompareTag("Player")){
+            Destroy(gameObject);
+        }
+    }
 }
