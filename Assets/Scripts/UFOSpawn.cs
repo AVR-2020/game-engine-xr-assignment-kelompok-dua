@@ -7,26 +7,31 @@ public class UFOSpawn : MonoBehaviour
 {
     public GameObject ufo;
     public GameObject player = null;
+    private float spawnRate = 5.0f;
 
     //public int speed = 1;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {       
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
 
-        InvokeRepeating("SpawnUFO", 3.0f, 5.0f);
+        InvokeRepeating("SpawnUFO", 3.0f, spawnRate);
     }
 
     void SpawnUFO()
     {
+        Debug.Log("Spawn Rate: " + spawnRate);
+        
         GameObject tmp = Instantiate(ufo);
         tmp.transform.position = SpawnRadius();
 
         //try to only enable scripts for clone
         tmp.AddComponent<ShootableTarget>();
         //tmp.gameObject.addComponent< ShootableTarget >(); 
+
+        if (spawnRate > 1.0f) spawnRate -= 0.1f;
     }
 
     Vector3 SpawnRadius()
