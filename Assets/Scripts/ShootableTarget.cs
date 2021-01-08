@@ -21,21 +21,21 @@ public class ShootableTarget : MonoBehaviour
         var matcolor = gameObject.GetComponent<Renderer>();
         if (typeUFO >= 1 && typeUFO <= 6) // Normal UFO (60%)
         {
-            currentHealth = 3;
+            currentHealth = 3 * Score.levelUp;
             rewardPoints = 1;
             MoveSpeed = 0.03f;
             matcolor.material.color = Color.yellow;
         }
         else if (typeUFO >= 7 && typeUFO <= 8) // Tanky UFO (20%)
         {
-            currentHealth = 5;
+            currentHealth = 5 * Score.levelUp;
             rewardPoints = 3;
             MoveSpeed = 0.01f;
             matcolor.material.color = Color.blue;
         }
         else if (typeUFO >= 9 && typeUFO <= 10) // Speedy UFO (20%)
         {
-            currentHealth = 1;
+            currentHealth = 1 * Score.levelUp;
             rewardPoints = 2;
             MoveSpeed = 0.05f;
             matcolor.material.color = Color.red;
@@ -49,6 +49,26 @@ public class ShootableTarget : MonoBehaviour
         {
             GameObject scoreObj = GameObject.Find("Score");
             scoreObj.GetComponent<Score>().AddScore(rewardPoints);
+            //if(UFOSpawn.spawnRate >= 1.5f)
+            //{
+            //    speedUp++;
+            //    if(speedUp == 3)
+            //    {
+            //        checker -= 0.3f;
+            //        Debug.Log(checker);
+            //        speedUp = 0;
+            //        if(levelUp <= 4)
+            //        {
+            //            nextLevel++;
+            //            if(nextLevel == 2)
+            //            {
+            //                Debug.Log("Level UP!");
+            //                nextLevel = 0;
+            //                levelUp++;
+            //            }
+            //        }
+            //    }
+            //}
             Destroy(gameObject);
         }
     }

@@ -7,22 +7,21 @@ public class UFOSpawn : MonoBehaviour
 {
     public GameObject ufo;
     public GameObject player = null;
-    private float spawnRate = 5.0f;
-
-    //public int speed = 1;
+    //public float spawnRate = 5.0f;
+    float timer;
 
     // Start is called before the first frame update
     void Start()
     {       
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
-
-        InvokeRepeating("SpawnUFO", 3.0f, spawnRate);
+        timer = Score.spawnRate;
+        //InvokeRepeating("SpawnUFO", 3.0f, spawnRate);
     }
 
     void SpawnUFO()
     {
-        Debug.Log("Spawn Rate: " + spawnRate);
+        Debug.Log("Spawn Rate: " + Score.spawnRate);
         
         GameObject tmp = Instantiate(ufo);
         tmp.transform.position = SpawnRadius();
@@ -31,7 +30,7 @@ public class UFOSpawn : MonoBehaviour
         tmp.AddComponent<ShootableTarget>();
         //tmp.gameObject.addComponent< ShootableTarget >(); 
 
-        if (spawnRate > 2.0f) spawnRate -= 0.1f;
+        //if (spawnRate > 2.0f) spawnRate -= 0.1f;
     }
 
     Vector3 SpawnRadius()
@@ -54,8 +53,11 @@ public class UFOSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.LookAt(player.transform);
-
-        //transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+        timer -= Time.deltaTime;
+        if(timer <= 0)
+        {
+            SpawnUFO();
+            timer = Score.spawnRate;
+        }
     }
 }
