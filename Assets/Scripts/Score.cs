@@ -19,17 +19,22 @@ public class Score : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        if(score > 0) count++;
-        Debug.Log("UFO: " + count);
-        if(count % 5 == 0 && spawnRate >= 1.5f && score > 0)
+        if (score > 0)
         {
-            Debug.Log("Faster!");
-            spawnRate -= 0.3f;
-        }
-        if(count % 20 == 0 && levelUp <= 2 && score > 0)
-        {
-            levelUp++;
-            Debug.Log("Level UP!");
+            count++;
+            Debug.Log("UFO: " + count);
+            if (count % 5 == 0 && spawnRate >= 2.2f)
+            {
+                //UFO spawns faster
+                Debug.Log("Faster!");
+                spawnRate -= 0.2f;
+            }
+            if (count % 20 == 0 && levelUp < 3)
+            {
+                //UFO will have more HP
+                levelUp++;
+                Debug.Log("Level UP!");
+            }
         }
         scoreText.GetComponent<Text>().text = "Score: " + score.ToString();
     }

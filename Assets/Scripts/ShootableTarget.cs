@@ -26,14 +26,14 @@ public class ShootableTarget : MonoBehaviour
             MoveSpeed = 0.03f;
             matcolor.material.color = Color.yellow;
         }
-        else if (typeUFO >= 7 && typeUFO <= 8) // Tanky UFO (20%)
+        else if (typeUFO == 7) // Tanky UFO (10%)
         {
             currentHealth = 5 * Score.levelUp;
             rewardPoints = 3;
             MoveSpeed = 0.01f;
             matcolor.material.color = Color.blue;
         }
-        else if (typeUFO >= 9 && typeUFO <= 10) // Speedy UFO (20%)
+        else if (typeUFO >= 8 && typeUFO <= 10) // Speedy UFO (30%)
         {
             currentHealth = 1 * Score.levelUp;
             rewardPoints = 2;
