@@ -20,6 +20,7 @@ public class Health : MonoBehaviour
             // Game Over Logic Implement disini
             Debug.Log("Game Over");
             health = 0;
+            UFOSpawn.isFinished = true;
         }
         healthText.GetComponent<Text>().text = "Nyawa: " + health.ToString();
     }

@@ -10,6 +10,8 @@ public class UFOSpawn : MonoBehaviour
     //public float spawnRate = 5.0f;
     float timer;
 
+    public static bool isFinished = false;
+
     // Start is called before the first frame update
     void Start()
     {       
@@ -54,7 +56,7 @@ public class UFOSpawn : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        if(timer <= 0)
+        if(timer <= 0 && !isFinished)
         {
             SpawnUFO();
             timer = Score.spawnRate;
