@@ -79,6 +79,9 @@ public class ShootableTarget : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(currentPosition, targetPosition, MoveSpeed);
         //transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+        if(UFOSpawn.isFinished){
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other) 
