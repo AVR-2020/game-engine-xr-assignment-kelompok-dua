@@ -67,6 +67,9 @@ public class RaycastShoot : MonoBehaviour
                     else if (start.getButtonType() == 2){
                         start.hitMenu();
                     }
+                    else if (start.getButtonType() == 3){
+                        start.hitQuit();
+                    }
                 }
                 
             }

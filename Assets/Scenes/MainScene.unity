@@ -687,7 +687,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HOW TO PLAY
+  m_text: CARA BERMAIN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1688,7 +1688,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2.89, y: -0.09875536}
-  m_SizeDelta: {x: 8, y: 6}
+  m_SizeDelta: {x: 9, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615207113
 MonoBehaviour:
@@ -1711,9 +1711,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'TANKY
 
-    High HP
 
-    Low Speed'
+    HP Tinggi
+
+    Kecepatan Rendah'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2158,7 +2159,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -3, y: -0.09875536}
-  m_SizeDelta: {x: 8, y: 6}
+  m_SizeDelta: {x: 9, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &795331219
 MonoBehaviour:
@@ -2182,9 +2183,9 @@ MonoBehaviour:
   m_text: 'NORMAL
 
 
-    Normal HP
+    HP Sedang
 
-    Normal Speed'
+    Kecepatan Sedang'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2481,6 +2482,7 @@ GameObject:
   - component: {fileID: 1113084422}
   - component: {fileID: 1113084421}
   - component: {fileID: 1113084420}
+  - component: {fileID: 1113084423}
   m_Layer: 0
   m_Name: QuitButton
   m_TagString: Untagged
@@ -2564,6 +2566,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113084418}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1113084423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113084418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9483bf791376c4488ac59c5dc826d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 143734076}
+  gameOver: {fileID: 347418124}
+  healthObj: {fileID: 451481831}
+  scoreObj: {fileID: 1038848627}
+  buttonType: 3
 --- !u!1 &1170426850
 GameObject:
   m_ObjectHideFlags: 0
@@ -3509,9 +3528,9 @@ MonoBehaviour:
   m_text: 'SPEEDY
 
 
-    Low HP
+    HP Rendah
 
-    High Speed'
+    Kecepatan Tinggi'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

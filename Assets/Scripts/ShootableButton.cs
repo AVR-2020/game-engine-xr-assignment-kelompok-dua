@@ -14,6 +14,7 @@ public class ShootableButton : MonoBehaviour
     public int getButtonType(){
         return buttonType;
     }
+
     public void hitStart()
     {
         mainMenu.SetActive(false);
@@ -26,6 +27,13 @@ public class ShootableButton : MonoBehaviour
 
         // Start Spawn
         UFOSpawn.isStarted = true;
+
+    }
+
+    public void hitQuit()
+    {
+        Debug.Log("Quitting Application");
+        Application.Quit();
 
     }
 
