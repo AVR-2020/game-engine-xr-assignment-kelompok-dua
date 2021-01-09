@@ -6,11 +6,12 @@ using TMPro;
 public class Health : MonoBehaviour
 {
     public GameObject healthText;
+    public GameObject gameOverObj;
     public static int health = 3;
 
     private void Start()
     {
-        ReduceHealth(0);
+        DisplayHealth(3);
     }
 
     public void ReduceHealth(int healthToReduce)
@@ -21,7 +22,19 @@ public class Health : MonoBehaviour
             Debug.Log("Game Over");
             health = 0;
             UFOSpawn.isFinished = true;
+            gameOverObj.SetActive(true);
+            GameObject scoreFinalObj = GameObject.Find("ScoreFinal");
+            scoreFinalObj.GetComponent<TextMeshPro>().text = "Skor: " + Score.score.ToString();
+            GameObject scoreObj = GameObject.Find("Score");
+            scoreObj.SetActive(false);
+            GameObject healthObj = GameObject.Find("Health");
+            healthObj.SetActive(false);
         }
-        healthText.GetComponent<TextMeshProUGUI>().text = "Nyawa: " + health.ToString();
+       DisplayHealth(health);
+    }
+
+    public void DisplayHealth(int healthToDisplay)
+    {
+        healthText.GetComponent<TextMeshProUGUI>().text = "Nyawa: " + healthToDisplay.ToString();
     }
 }

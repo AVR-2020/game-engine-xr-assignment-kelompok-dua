@@ -4,23 +4,58 @@ using UnityEngine;
 
 public class ShootableButton : MonoBehaviour
 {
-    public int currentHealth = 1;
     public GameObject mainMenu;
-    public GameObject scoreUI;
-    public GameObject healthUI;
+    public GameObject gameOver;
 
-    public void DamageStart(int damageAmount)
+    public GameObject healthObj;
+    public GameObject scoreObj;
+    public int buttonType;
+
+    public int getButtonType(){
+        return buttonType;
+    }
+    public void hitStart()
     {
-        currentHealth -= damageAmount;
-        if (currentHealth <= 0)
-        {
-            mainMenu.SetActive(false);
-            scoreUI.SetActive(true);
-            healthUI.SetActive(true);
+        mainMenu.SetActive(false);
+        Health.health = 3;
+        healthObj.GetComponent<Health>().DisplayHealth(Health.health);
+        healthObj.SetActive(true);
+        Score.score = 0;
+        scoreObj.GetComponent<Score>().DisplayScore(Score.score);
+        scoreObj.SetActive(true);
 
-            // Start Spawn
-            UFOSpawn.isStarted = true;
+        // Start Spawn
+        UFOSpawn.isStarted = true;
 
-        }
+    }
+
+    public void hitRetry()
+    {
+        gameOver.SetActive(false);
+        Health.health = 3;
+        healthObj.GetComponent<Health>().DisplayHealth(Health.health);
+        healthObj.SetActive(true);
+        Score.score = 0;
+        scoreObj.GetComponent<Score>().DisplayScore(Score.score);
+        scoreObj.SetActive(true);
+
+        // Start Spawn
+        UFOSpawn.isFinished = false;
+        UFOSpawn.isStarted = true;
+
+    }
+
+    public void hitMenu()
+    {
+        gameOver.SetActive(false);
+        mainMenu.SetActive(true);
+        Health.health = 3;
+        healthObj.GetComponent<Health>().DisplayHealth(Health.health);
+        Score.score = 0;
+        scoreObj.GetComponent<Score>().DisplayScore(Score.score);
+
+        // Start Spawn
+        UFOSpawn.isFinished = false;
+        UFOSpawn.isStarted = false;
     }
 }

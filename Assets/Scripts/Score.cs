@@ -13,7 +13,7 @@ public class Score : MonoBehaviour
 
     private void Start()
     {
-        AddScore(0);
+        DisplayScore(score);
     }
 
     public void AddScore(int scoreToAdd)
@@ -36,6 +36,11 @@ public class Score : MonoBehaviour
                 Debug.Log("Level UP!");
             }
         }
-        scoreText.GetComponent<TextMeshProUGUI>().text = "Skor: " + score.ToString();
+        DisplayScore(score);
+    }
+
+    public void DisplayScore(int scoreToDisplay)
+    {
+        scoreText.GetComponent<TextMeshProUGUI>().text = "Skor: " + scoreToDisplay.ToString();
     }
 }

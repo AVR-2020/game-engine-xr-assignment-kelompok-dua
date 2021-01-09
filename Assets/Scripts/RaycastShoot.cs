@@ -58,7 +58,15 @@ public class RaycastShoot : MonoBehaviour
 
                 if (start!= null)
                 {
-                    start.DamageStart(gunDamage);
+                    if (start.getButtonType() == 0){
+                        start.hitStart();
+                    }
+                    else if (start.getButtonType() == 1){
+                        start.hitRetry();
+                    }
+                    else if (start.getButtonType() == 2){
+                        start.hitMenu();
+                    }
                 }
                 
             }
