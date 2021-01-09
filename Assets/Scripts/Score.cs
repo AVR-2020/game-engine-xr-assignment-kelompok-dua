@@ -36,6 +36,6 @@ public class Score : MonoBehaviour
                 Debug.Log("Level UP!");
             }
         }
-        scoreText.GetComponent<Text>().text = "Score: " + score.ToString();
+        scoreText.GetComponent<Text>().text = "Skor: " + score.ToString();
     }
 }

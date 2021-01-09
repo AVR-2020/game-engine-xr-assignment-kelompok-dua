@@ -10,7 +10,6 @@ public class ShootableTarget : MonoBehaviour
 
     public float MoveSpeed = 1.0f;
     public GameObject player = null;
-
     private int rewardPoints;
 
     void Start()
@@ -85,6 +84,8 @@ public class ShootableTarget : MonoBehaviour
     private void OnTriggerEnter(Collider other) 
     {
         if (other.CompareTag("Player")){
+            GameObject healthObj = GameObject.Find("Health");
+            healthObj.GetComponent<Health>().ReduceHealth(1);
             Destroy(gameObject);
         }
     }
