@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using TMPro;
 
 public class Health : MonoBehaviour
 {
@@ -22,6 +22,6 @@ public class Health : MonoBehaviour
             health = 0;
             UFOSpawn.isFinished = true;
         }
-        healthText.GetComponent<Text>().text = "Nyawa: " + health.ToString();
+        healthText.GetComponent<TextMeshProUGUI>().text = "Nyawa: " + health.ToString();
     }
 }

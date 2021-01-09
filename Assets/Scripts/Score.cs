@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using TMPro;
 
 public class Score : MonoBehaviour
 {
@@ -36,6 +36,6 @@ public class Score : MonoBehaviour
                 Debug.Log("Level UP!");
             }
         }
-        scoreText.GetComponent<Text>().text = "Skor: " + score.ToString();
+        scoreText.GetComponent<TextMeshProUGUI>().text = "Skor: " + score.ToString();
     }
 }
