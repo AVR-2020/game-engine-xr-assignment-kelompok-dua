@@ -40,11 +40,11 @@ public class RaycastShoot : MonoBehaviour
             {
                 laserLine.SetPosition(1, hit.point);
 
+                // Shootable Target
                 ShootableTarget health = hit.collider.GetComponent<ShootableTarget>();
 
                 if (health != null)
                 {
-                    Debug.Log("HIT");
                     health.Damage(gunDamage);
                 }
 
@@ -52,6 +52,15 @@ public class RaycastShoot : MonoBehaviour
                 {
                     hit.rigidbody.AddForce(-hit.normal * hitForce);
                 }
+
+                // Shootable Buttons
+                ShootableButton start = hit.collider.GetComponent<ShootableButton>();
+
+                if (start!= null)
+                {
+                    start.DamageStart(gunDamage);
+                }
+                
             }
             else
             {
