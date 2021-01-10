@@ -6,12 +6,16 @@ public class RaycastShoot : MonoBehaviour
 {
     public int gunDamage = 1;
     public float fireRate = .25f;
+    // public float reloadTime = .75f;
+    public int numberOfBullet = 10;
+    public int isReload = 0;
     public float weaponRange = 50f;
     public float hitForce = 100f;
     public Transform gunEnd;
 
     private Camera fpsCam;
     private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
+    private WaitForSeconds reloadDuration = new WaitForSeconds(1f);
     private AudioSource gunAudio;
     private LineRenderer laserLine;
     private float nextFire;
@@ -26,8 +30,15 @@ public class RaycastShoot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown ("Fire1") && Time.time > nextFire)
+        if (Input.GetButtonDown ("Fire1") && Time.time > nextFire && isReload == 0)
         {
+            numberOfBullet--;
+            if(numberOfBullet == 0)
+            {
+                isReload = 1;
+                StartCoroutine(reloadBullet());
+                
+            }
             nextFire = Time.time + fireRate;
             StartCoroutine(ShotEffect());
             
@@ -90,6 +101,13 @@ public class RaycastShoot : MonoBehaviour
         laserLine.enabled = true;
         yield return shotDuration;
         laserLine.enabled = false;
+    }
+
+    private IEnumerator reloadBullet()
+    {
+        yield return reloadDuration;
+        numberOfBullet = 10;
+        isReload = 0;
     }
 
 
