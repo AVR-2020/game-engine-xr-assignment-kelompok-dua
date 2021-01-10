@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public static int health = 3;
 
     public GameObject bgmStart;
+    public GameObject hit;
 
     private void Start()
     {
@@ -19,6 +20,10 @@ public class Health : MonoBehaviour
     public void ReduceHealth(int healthToReduce)
     {
         health -= healthToReduce;
+
+        // Player being hit
+        hit.GetComponent<AudioSource>().Play();
+
         if (health <= 0){
             // Game Over Logic Implement disini
             Debug.Log("Game Over");
