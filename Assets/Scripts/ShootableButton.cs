@@ -13,6 +13,8 @@ public class ShootableButton : MonoBehaviour
     public GameObject gunObj;
     public int buttonType;
 
+    public GameObject bgmStart;
+
     public int getButtonType(){
         return buttonType;
     }
@@ -33,6 +35,9 @@ public class ShootableButton : MonoBehaviour
         gunObj.GetComponent<RaycastShoot>().DisplayBullet();
         bulletNumberObj.SetActive(true);
 
+        // BGM Start
+        bgmStart.GetComponent<AudioSource>().Play();
+
         // Start Spawn
         UFOSpawn.isStarted = true;
 
@@ -49,6 +54,9 @@ public class ShootableButton : MonoBehaviour
     {
         gameOver.SetActive(false);
         
+        // BGM Start
+        bgmStart.GetComponent<AudioSource>().Play();
+
         Health.health = 3;
         healthObj.GetComponent<Health>().DisplayHealth(Health.health);
         healthObj.SetActive(true);

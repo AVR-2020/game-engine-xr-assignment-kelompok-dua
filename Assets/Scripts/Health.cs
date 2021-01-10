@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     public GameObject gameOverObj;
     public static int health = 3;
 
+    public GameObject bgmStart;
+
     private void Start()
     {
         DisplayHealth(3);
@@ -20,6 +22,7 @@ public class Health : MonoBehaviour
         if (health <= 0){
             // Game Over Logic Implement disini
             Debug.Log("Game Over");
+            bgmStart.GetComponent<AudioSource>().Stop();
             health = 0;
             UFOSpawn.isFinished = true;
             gameOverObj.SetActive(true);
