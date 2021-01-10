@@ -12,12 +12,16 @@ public class UFOSpawn : MonoBehaviour
 
     public static bool isFinished = false;
     public static bool isStarted = false;
+    // private AudioSource ufoAudio;
 
     // Start is called before the first frame update
     void Start()
     {       
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
+        
+        // ufo.GetComponent<AudioSource>().play;
+        // Debug.Log(ufo.GetComponent<AudioSource>()); 
         timer = Score.spawnRate;
         //InvokeRepeating("SpawnUFO", 3.0f, spawnRate);
     }
@@ -31,6 +35,7 @@ public class UFOSpawn : MonoBehaviour
 
         //try to only enable scripts for clone
         tmp.AddComponent<ShootableTarget>();
+        // ufoAudio.play();
         //tmp.gameObject.addComponent< ShootableTarget >(); 
 
         //if (spawnRate > 2.0f) spawnRate -= 0.1f;
