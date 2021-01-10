@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "229323402827",
+    "firebase_url": "https://fp-rva-29a08-default-rtdb.firebaseio.com",
+    "project_id": "fp-rva-29a08",
+    "storage_bucket": "fp-rva-29a08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229323402827:android:48815a52423bbbd904e7ce",
+        "android_client_info": {
+          "package_name": "com.KelompokDua.KeepYourEyesOut"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229323402827-a1l7akp4ota7h05v4qk4jim7phod397n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtwc64szR4mfyKeUzjUFNhsyHIQUITHnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229323402827-a1l7akp4ota7h05v4qk4jim7phod397n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

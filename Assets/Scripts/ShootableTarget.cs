@@ -12,8 +12,6 @@ public class ShootableTarget : MonoBehaviour
     public GameObject player = null;
     private int rewardPoints;
 
-    private GameObject UFODestroyed;
-
     void Start()
     {
         if (player == null)
@@ -50,10 +48,26 @@ public class ShootableTarget : MonoBehaviour
         {
             GameObject scoreObj = GameObject.Find("Score");
             scoreObj.GetComponent<Score>().AddScore(rewardPoints);
-            
-            UFODestroyed = GameObject.Find("UFODestroyed");
-            UFODestroyed.GetComponent<AudioSource>().Play();
-
+            //if(UFOSpawn.spawnRate >= 1.5f)
+            //{
+            //    speedUp++;
+            //    if(speedUp == 3)
+            //    {
+            //        checker -= 0.3f;
+            //        Debug.Log(checker);
+            //        speedUp = 0;
+            //        if(levelUp <= 4)
+            //        {
+            //            nextLevel++;
+            //            if(nextLevel == 2)
+            //            {
+            //                Debug.Log("Level UP!");
+            //                nextLevel = 0;
+            //                levelUp++;
+            //            }
+            //        }
+            //    }
+            //}
             Destroy(gameObject);
         }
     }

@@ -7,10 +7,8 @@ public class Health : MonoBehaviour
 {
     public GameObject healthText;
     public GameObject gameOverObj;
+    public GameObject highScoreObj;
     public static int health = 3;
-
-    public GameObject bgmStart;
-    public GameObject hit;
 
     private void Start()
     {
@@ -20,17 +18,20 @@ public class Health : MonoBehaviour
     public void ReduceHealth(int healthToReduce)
     {
         health -= healthToReduce;
-
-        // Player being hit
-        hit.GetComponent<AudioSource>().Play();
-
         if (health <= 0){
             // Game Over Logic Implement disini
             Debug.Log("Game Over");
-            bgmStart.GetComponent<AudioSource>().Stop();
             health = 0;
             UFOSpawn.isFinished = true;
             gameOverObj.SetActive(true);
+
+            int oldScore = Player.getHighScore();
+            if(Score.score >= oldScore)
+            {
+                Player.writeNewScore(Score.score);
+            } 
+            
+
             GameObject scoreFinalObj = GameObject.Find("ScoreFinal");
             scoreFinalObj.GetComponent<TextMeshPro>().text = "Skor: " + Score.score.ToString();
             GameObject scoreObj = GameObject.Find("Score");
@@ -39,6 +40,9 @@ public class Health : MonoBehaviour
             healthObj.SetActive(false);
             GameObject bulletNumberObj = GameObject.Find("Bulletnumber");
             bulletNumberObj.SetActive(false);
+            GameObject highScoreObj = GameObject.Find("HighScoreText");
+            int newHighScore = Player.getHighScore();
+            highScoreObj.GetComponent<TextMeshPro>().text = "Skor Tertinggi: " + newHighScore.ToString();
         }
        DisplayHealth(health);
     }
