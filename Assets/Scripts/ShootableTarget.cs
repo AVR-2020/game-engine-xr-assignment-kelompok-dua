@@ -78,8 +78,9 @@ public class ShootableTarget : MonoBehaviour
         Vector3 targetPosition = new Vector3(player.transform.position.x, player.transform.position.y + 1.0f, player.transform.position.z);
 
         transform.position = Vector3.MoveTowards(currentPosition, targetPosition, MoveSpeed);
+        transform.Rotate(0, 0, 90 * Time.deltaTime);
         //transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-        if(UFOSpawn.isFinished){
+        if (UFOSpawn.isFinished){
             Destroy(gameObject);
         }
     }
