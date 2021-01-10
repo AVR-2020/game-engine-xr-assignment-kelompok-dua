@@ -9,6 +9,8 @@ public class ShootableButton : MonoBehaviour
 
     public GameObject healthObj;
     public GameObject scoreObj;
+    public GameObject bulletNumberObj;
+    public GameObject gunObj;
     public int buttonType;
 
     public int getButtonType(){
@@ -18,12 +20,18 @@ public class ShootableButton : MonoBehaviour
     public void hitStart()
     {
         mainMenu.SetActive(false);
+        
         Health.health = 3;
         healthObj.GetComponent<Health>().DisplayHealth(Health.health);
         healthObj.SetActive(true);
+        
         Score.score = 0;
         scoreObj.GetComponent<Score>().DisplayScore(Score.score);
         scoreObj.SetActive(true);
+
+        RaycastShoot.numberOfBullet = 10;
+        gunObj.GetComponent<RaycastShoot>().DisplayBullet();
+        bulletNumberObj.SetActive(true);
 
         // Start Spawn
         UFOSpawn.isStarted = true;
@@ -40,12 +48,18 @@ public class ShootableButton : MonoBehaviour
     public void hitRetry()
     {
         gameOver.SetActive(false);
+        
         Health.health = 3;
         healthObj.GetComponent<Health>().DisplayHealth(Health.health);
         healthObj.SetActive(true);
+        
         Score.score = 0;
         scoreObj.GetComponent<Score>().DisplayScore(Score.score);
         scoreObj.SetActive(true);
+        
+        RaycastShoot.numberOfBullet = 10;
+        gunObj.GetComponent<RaycastShoot>().DisplayBullet();
+        bulletNumberObj.SetActive(true);
 
         // Start Spawn
         UFOSpawn.isFinished = false;
@@ -57,10 +71,6 @@ public class ShootableButton : MonoBehaviour
     {
         gameOver.SetActive(false);
         mainMenu.SetActive(true);
-        Health.health = 3;
-        healthObj.GetComponent<Health>().DisplayHealth(Health.health);
-        Score.score = 0;
-        scoreObj.GetComponent<Score>().DisplayScore(Score.score);
 
         // Start Spawn
         UFOSpawn.isFinished = false;

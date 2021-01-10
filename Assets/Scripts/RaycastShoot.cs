@@ -10,7 +10,7 @@ public class RaycastShoot : MonoBehaviour
     public int gunDamage = 1;
     public float fireRate = .25f;
     // public float reloadTime = .75f;
-    public int numberOfBullet = 10;
+    public static int numberOfBullet = 10;
     public int isReload = 0;
     public float weaponRange = 50f;
     public float hitForce = 100f;
@@ -22,6 +22,8 @@ public class RaycastShoot : MonoBehaviour
     private AudioSource gunAudio;
     private LineRenderer laserLine;
     private float nextFire;
+
+    public GameObject Bulletnumber;
 
     void Start()
     {
@@ -36,7 +38,10 @@ public class RaycastShoot : MonoBehaviour
         // displayBullet();
         if (Input.GetButtonDown ("Fire1") && Time.time > nextFire && isReload == 0)
         {
-            numberOfBullet--;
+            if (UFOSpawn.isStarted && !UFOSpawn.isFinished){
+                numberOfBullet--;
+                DisplayBullet();
+            }
             if(numberOfBullet == 0)
             {
                 isReload = 1;
@@ -112,11 +117,11 @@ public class RaycastShoot : MonoBehaviour
         yield return reloadDuration;
         numberOfBullet = 10;
         isReload = 0;
+        DisplayBullet();
     }
 
-    // private void displayBullet()
-    // {
-    //     GameObject Bulletnumber = GameObject.Find("Bulletnumber");
-    //     Bulletnumber.GetComponent<TextMeshProUGUI>().text = "Peluru: " + numberOfBullet.ToString();
-    // }
+    public void DisplayBullet()
+    {
+        Bulletnumber.GetComponent<TextMeshProUGUI>().text = "Peluru: " + numberOfBullet.ToString();
+    }
 }

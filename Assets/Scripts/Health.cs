@@ -29,6 +29,8 @@ public class Health : MonoBehaviour
             scoreObj.SetActive(false);
             GameObject healthObj = GameObject.Find("Health");
             healthObj.SetActive(false);
+            GameObject bulletNumberObj = GameObject.Find("Bulletnumber");
+            bulletNumberObj.SetActive(false);
         }
        DisplayHealth(health);
     }

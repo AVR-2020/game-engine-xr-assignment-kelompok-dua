@@ -355,6 +355,8 @@ MonoBehaviour:
   gameOver: {fileID: 347418124}
   healthObj: {fileID: 451481831}
   scoreObj: {fileID: 1038848627}
+  bulletNumberObj: {fileID: 2120223934}
+  gunObj: {fileID: 1955598000}
   buttonType: 1
 --- !u!64 &121143059
 MeshCollider:
@@ -2801,6 +2803,8 @@ MonoBehaviour:
   gameOver: {fileID: 347418124}
   healthObj: {fileID: 451481831}
   scoreObj: {fileID: 1038848627}
+  bulletNumberObj: {fileID: 0}
+  gunObj: {fileID: 0}
   buttonType: 3
 --- !u!1 &1170426850
 GameObject:
@@ -3322,8 +3326,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 143734076}
   gameOver: {fileID: 347418124}
-  healthObj: {fileID: 451481831}
-  scoreObj: {fileID: 1038848627}
+  healthObj: {fileID: 0}
+  scoreObj: {fileID: 0}
+  bulletNumberObj: {fileID: 0}
+  gunObj: {fileID: 0}
   buttonType: 2
 --- !u!64 &1361699807
 MeshCollider:
@@ -4638,6 +4644,8 @@ MonoBehaviour:
   gameOver: {fileID: 0}
   healthObj: {fileID: 451481831}
   scoreObj: {fileID: 1038848627}
+  bulletNumberObj: {fileID: 2120223934}
+  gunObj: {fileID: 1955598000}
   buttonType: 0
 --- !u!1 &1758998956
 GameObject:
@@ -4937,11 +4945,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunDamage: 1
   fireRate: 0.25
-  numberOfBullet: 10
   isReload: 0
   weaponRange: 50
   hitForce: 100
   gunEnd: {fileID: 1214595109}
+  Bulletnumber: {fileID: 2120223934}
 --- !u!120 &1955598003
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5507,7 +5515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 115.6}
+  m_AnchoredPosition: {x: -350, y: 113}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2120223937
