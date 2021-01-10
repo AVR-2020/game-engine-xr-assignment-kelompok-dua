@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RaycastShoot : MonoBehaviour
 {
+    // public GameObject bulletNumber;
+
     public int gunDamage = 1;
     public float fireRate = .25f;
     // public float reloadTime = .75f;
@@ -30,6 +33,7 @@ public class RaycastShoot : MonoBehaviour
 
     void Update()
     {
+        // displayBullet();
         if (Input.GetButtonDown ("Fire1") && Time.time > nextFire && isReload == 0)
         {
             numberOfBullet--;
@@ -110,5 +114,9 @@ public class RaycastShoot : MonoBehaviour
         isReload = 0;
     }
 
-
+    // private void displayBullet()
+    // {
+    //     GameObject Bulletnumber = GameObject.Find("Bulletnumber");
+    //     Bulletnumber.GetComponent<TextMeshProUGUI>().text = "Peluru: " + numberOfBullet.ToString();
+    // }
 }
