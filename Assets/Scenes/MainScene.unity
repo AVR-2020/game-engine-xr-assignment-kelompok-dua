@@ -356,9 +356,9 @@ MonoBehaviour:
   healthObj: {fileID: 451481831}
   scoreObj: {fileID: 1038848627}
   bulletNumberObj: {fileID: 2120223934}
-  gunObj: {fileID: 0}
+  gunObj: {fileID: 298542034}
   buttonType: 1
-  bgmStart: {fileID: 0}
+  bgmStart: {fileID: 564259627}
 --- !u!64 &121143059
 MeshCollider:
   m_ObjectHideFlags: 0
