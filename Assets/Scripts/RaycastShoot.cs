@@ -50,13 +50,15 @@ public class RaycastShoot : MonoBehaviour
             }
             nextFire = Time.time + fireRate;
             StartCoroutine(ShotEffect());
-            
-            Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3 (0.5f, 0.5f, 0));
+
+            // Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3 (0.5f, 0.5f, 0));
+            Vector3 rayOrigin = new Vector3(0, 0, -1.0f);
             
             RaycastHit hit;
             laserLine.SetPosition(0, gunEnd.position);
-            
-            if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
+
+            //if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
+            if (Physics.Raycast(rayOrigin, transform.forward, out hit, weaponRange))
             {
                 laserLine.SetPosition(1, hit.point);
 
@@ -95,7 +97,8 @@ public class RaycastShoot : MonoBehaviour
             }
             else
             {
-                laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
+                // laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
+                laserLine.SetPosition(1, rayOrigin + (transform.forward * weaponRange));
             }
 
         }
