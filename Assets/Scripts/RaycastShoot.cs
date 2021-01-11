@@ -16,7 +16,7 @@ public class RaycastShoot : MonoBehaviour
     public float hitForce = 100f;
     public Transform gunEnd;
 
-    private Camera fpsCam;
+    public Camera fpsCam;
     private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
     private WaitForSeconds reloadDuration = new WaitForSeconds(1f);
     private AudioSource gunAudio;
@@ -29,8 +29,6 @@ public class RaycastShoot : MonoBehaviour
     {
         laserLine = GetComponent<LineRenderer>();
         gunAudio = GetComponent<AudioSource>();
-        fpsCam = GetComponentInParent<Camera>();
-
     }
 
     void Update()
@@ -51,14 +49,12 @@ public class RaycastShoot : MonoBehaviour
             nextFire = Time.time + fireRate;
             StartCoroutine(ShotEffect());
 
-            // Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3 (0.5f, 0.5f, 0));
-            Vector3 rayOrigin = new Vector3(0, 0, -1.0f);
+            Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3 (0.5f, 0.5f, 0));
             
             RaycastHit hit;
             laserLine.SetPosition(0, gunEnd.position);
 
-            //if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
-            if (Physics.Raycast(rayOrigin, transform.forward, out hit, weaponRange))
+            if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
             {
                 laserLine.SetPosition(1, hit.point);
 
@@ -97,8 +93,7 @@ public class RaycastShoot : MonoBehaviour
             }
             else
             {
-                // laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
-                laserLine.SetPosition(1, rayOrigin + (transform.forward * weaponRange));
+                laserLine.SetPosition(1, rayOrigin + (fpsCam.transform.forward * weaponRange));
             }
 
         }
