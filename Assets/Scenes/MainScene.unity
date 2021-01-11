@@ -731,6 +731,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &298542034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4996666120946614143, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1384249998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &342756041
 GameObject:
   m_ObjectHideFlags: 0
@@ -4289,6 +4295,11 @@ PrefabInstance:
       propertyPath: fpsCam
       value: 
       objectReference: {fileID: 1522855321}
+    - target: {fileID: 5302654914168154687, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 3}
+      propertyPath: Bulletnumber
+      value: 
+      objectReference: {fileID: 2120223934}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
 --- !u!1 &1402715983
@@ -5050,7 +5061,7 @@ MonoBehaviour:
   healthObj: {fileID: 451481831}
   scoreObj: {fileID: 1038848627}
   bulletNumberObj: {fileID: 2120223934}
-  gunObj: {fileID: 0}
+  gunObj: {fileID: 298542034}
   buttonType: 0
   bgmStart: {fileID: 564259627}
 --- !u!1 &1758998956
